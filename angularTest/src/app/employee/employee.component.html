@@ -1,0 +1,22 @@
+<div class="table">
+<table   class="table table-striped" border="4" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col"  style="text-align: center;">Total Time in Month</th>
+      <th scope="col"  style="text-align: center;">Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="map2.size > 0" >
+    <tr *ngFor="let item of map2|keyvalue:keyDescOrder"   >
+        <td  [ngClass]=" converStringToNumber(item.key) < 100 ? 'make-red' : ''" >{{item.value}}</td>
+        <td  [ngClass]=" converStringToNumber(item.key) < 100 ? 'make-red' : ''" style="text-align: center;" >{{item.key}} hrs</td>
+        <td [ngClass]="converStringToNumber(item.key) < 100 ? 'make-red' : ''" style="text-align: center;" ><a href="#">Edit</a></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<div class="chartContainer" *ngIf="map.size > 0">
+  <apx-chart [series]="chartSeries" [chart]="chartDetails" [labels]="chartLabels" ></apx-chart>
+</div>
+
